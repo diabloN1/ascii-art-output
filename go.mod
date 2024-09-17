@@ -1,3 +1,3 @@
-module ascii-art-output
+module asciiArtOutput
 
 go 1.22.3
