@@ -2,14 +2,12 @@ package myfunctions
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
 
-func WriteResult(asciiChars map[int]string) ([]string, error) {
+func WriteResult(str string, asciiChars map[int]string) ([]string, error) {
 	result := []string{}
 	lineToWrite := 0
-	str := os.Args[2]
 	inWord := false
 	letterCount := 0
 	for i := 0; i < len(str); i++ {
@@ -31,7 +29,7 @@ func WriteResult(asciiChars map[int]string) ([]string, error) {
 			i++
 			continue
 		}
-		
+
 		// Prepare Slice to write character.
 		if letterCount == 0 {
 			newLineAscii := []string{"", "", "", "", "", "", "", ""}
@@ -42,7 +40,7 @@ func WriteResult(asciiChars map[int]string) ([]string, error) {
 			lineToWrite += 8
 		}
 
-		//Filling the letter in the result slice.
+		// Filling the letter in the result slice.
 		letterCount++
 		inWord = true
 		asciiChar := strings.Split(asciiChars[int(str[i])], "\n")
