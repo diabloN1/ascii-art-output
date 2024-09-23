@@ -11,7 +11,7 @@ func Output(data []string, fileName string) {
 	// os.O_RDWR means open for read/write
 	// os.O_CREATE means create the file if it doesn't exist
 	// os.O_TRUNC means truncate (clear) the file if it already exists
-	file, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
+	file, err := os.Create(fileName)
 	if err != nil {
 		log.Println(err)
 		return
@@ -20,18 +20,12 @@ func Output(data []string, fileName string) {
 
 	// Write data line by line while.
 	for i := range data {
-		
 
 		// Write line.
-		_, err := file.WriteString(data[i])
+		_, err := file.WriteString(data[i]+"\n")
 		if err != nil {
 			log.Println(err)
 			return
-		}
-
-		// Append \n till last line.
-		if i != len(data) - 1 {
-			file.WriteString("\n")
 		}
 	}
 }

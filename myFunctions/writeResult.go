@@ -51,6 +51,8 @@ func WriteResult(str string, asciiChars map[int]string) ([]string, error) {
 	return result, nil
 }
 
+
+// Checking if only new lines exists in a string.
 func OnlyNewLinesRemaining(str string) bool {
 	for i := 0; i < len(str); i++ {
 		if i+1 < len(str) && str[i] == '\\' && str[i+1] == 'n' {
